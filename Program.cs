@@ -6,8 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Algorithms_lab2
 {
+    [Serializable]
     public class BinarySearchTree<T>
     {
+        [Serializable]
         public class Node<T>
         {
             public int key;
@@ -163,6 +165,7 @@ namespace Algorithms_lab2
     }
     class Test
     {
+       
         public static BinarySearchTree<int> tree = new BinarySearchTree<int>();
         public static void Main(string[] args)
         {
@@ -200,6 +203,9 @@ namespace Algorithms_lab2
             TestDelete(array);
             TestSum();
             TestFind(array);
+
+            Console.WriteLine(GetSize(tree) + "bytes");
+            
 
         }
         public static void TestInsert(int[] arr)
@@ -243,6 +249,18 @@ namespace Algorithms_lab2
             }
             stopwatch.Stop();
             Console.WriteLine("Время на удаление: " + stopwatch.ElapsedTicks * 100 + "ns");
+        }
+        static long GetSize<T>(T obj)
+        {
+            long size = 0;
+            using (Stream s = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(s, obj);
+                size = s.Length;
+            }
+
+            return size;
         }
     }
 }
