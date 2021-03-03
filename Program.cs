@@ -204,7 +204,9 @@ namespace Algorithms_lab2
             TestSum();
             TestFind(array);
 
-            Console.WriteLine(GetSize(tree) + "bytes");
+            Console.WriteLine();
+
+            Console.WriteLine("Занимает памяти: " + GetSize(tree) + " bytes");
             
 
         }
