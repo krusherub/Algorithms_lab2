@@ -250,7 +250,7 @@ namespace Algorithms_lab2
                 tree.SearchByValue(arr[i]);
             }
             stopwatch.Stop();
-            Console.WriteLine("Время на удаление: " + stopwatch.ElapsedTicks * 100 + "ns");
+            Console.WriteLine("Время на нахождение: " + stopwatch.ElapsedTicks * 100 + "ns");
         }
         static long GetSize<T>(T obj)
         {
